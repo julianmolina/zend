@@ -1,4 +1,4 @@
-<?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -25,42 +25,42 @@ class ApacheResolver implements ResolverInterface
      *
      * @var string
      */
-    protected $file;
+    protected file;
 
     /**
      * Apache password object
      *
      * @var ApachePassword
      */
-    protected $apachePassword;
+    protected apachePassword;
 
     /**
      * Constructor
      *
-     * @param  string $path Complete filename where the credentials are stored
+     * @param  string path Complete filename where the credentials are stored
      */
-    public function __construct($path = '')
+    public function __construct(path = '')
     {
-        if (!empty($path)) {
-            $this->setFile($path);
+        if !empty(path) {
+            this->setFile(path);
         }
     }
 
     /**
      * Set the path to the credentials file
      *
-     * @param  string $path
+     * @param  string path
      * @return FileResolver Provides a fluent interface
      * @throws Exception\InvalidArgumentException if path is not readable
      */
-    public function setFile($path)
+    public function setFile(path)
     {
-        if (empty($path) || !is_readable($path)) {
-            throw new Exception\InvalidArgumentException('Path not readable: ' . $path);
+        if empty(path) || !is_readable(path) {
+            throw new Exception\InvalidArgumentException('Path not readable: ' . path);
         }
-        $this->file = $path;
+        let this->file = path;
 
-        return $this;
+        return this;
     }
 
     /**
@@ -70,7 +70,7 @@ class ApacheResolver implements ResolverInterface
      */
     public function getFile()
     {
-        return $this->file;
+        return this->file;
     }
 
     /**
@@ -80,10 +80,10 @@ class ApacheResolver implements ResolverInterface
      */
     protected function getApachePassword()
     {
-        if (empty($this->apachePassword)) {
-            $this->apachePassword = new ApachePassword();
+        if empty(this->apachePassword) {
+            let this->apachePassword = new ApachePassword();
         }
-        return $this->apachePassword;
+        return this->apachePassword;
     }
 
     /**
@@ -91,79 +91,80 @@ class ApacheResolver implements ResolverInterface
      *
      *
      *
-     * @param  string $username Username
-     * @param  string $realm    Authentication Realm
-     * @param  string $password The password to authenticate
+     * @param  string username Username
+     * @param  string realm    Authentication Realm
+     * @param  string password The password to authenticate
      * @return AuthResult
      * @throws Exception\ExceptionInterface
      */
-    public function resolve($username, $realm, $password = null)
+    public function resolve(username, realm, password = null)
     {
-        if (empty($username)) {
+        if empty(username) {
             throw new Exception\InvalidArgumentException('Username is required');
         }
 
-        if (!ctype_print($username) || strpos($username, ':') !== false) {
+        if !ctype_print(username) || strpos(username, ':') !== false {
             throw new Exception\InvalidArgumentException(
                 'Username must consist only of printable characters, excluding the colon'
             );
         }
 
-        if (!empty($realm) && (!ctype_print($realm) || strpos($realm, ':') !== false)) {
+        if !empty(realm) && (!ctype_print(realm) || strpos(realm, ':') !== false) {
             throw new Exception\InvalidArgumentException(
                 'Realm must consist only of printable characters, excluding the colon'
             );
         }
 
-        if (empty($password)) {
+        if empty(password) {
             throw new Exception\InvalidArgumentException('Password is required');
         }
 
         // Open file, read through looking for matching credentials
         ErrorHandler::start(E_WARNING);
-        $fp    = fopen($this->file, 'r');
-        $error = ErrorHandler::stop();
-        if (!$fp) {
-            throw new Exception\RuntimeException('Unable to open password file: ' . $this->file, 0, $error);
+        let fp    = fopen(this->file, 'r');
+        let error = ErrorHandler::stop();
+        if !fp {
+            throw new Exception\RuntimeException('Unable to open password file: ' . this->file, 0, error);
         }
 
         // No real validation is done on the contents of the password file. The
         // assumption is that we trust the administrators to keep it secure.
-        while (($line = fgetcsv($fp, 512, ':')) !== false) {
-            if ($line[0] != $username) {
+        while (line = fgetcsv(fp, 512, ':')) !== false {
+
+            if line[0] != username {
                 continue;
             }
 
-            if (isset($line[2])) {
-                if ($line[1] == $realm) {
-                    $matchedHash = $line[2];
+            if isset(line[2]) {
+                if line[1] == realm {
+                    let matchedHash = line[2];
                     break;
                 }
                 continue;
             }
 
-            $matchedHash = $line[1];
+            let matchedHash = line[1];
             break;
         }
-        fclose($fp);
+        fclose(fp);
 
-        if (!isset($matchedHash)) {
+        if !isset(matchedHash) {
             return new AuthResult(AuthResult::FAILURE_IDENTITY_NOT_FOUND, null, array('Username not found in provided htpasswd file'));
         }
 
         // Plaintext password
-        if ($matchedHash === $password) {
-            return new AuthResult(AuthResult::SUCCESS, $username);
+        if matchedHash === password {
+            return new AuthResult(AuthResult::SUCCESS, username);
         }
 
-        $apache = $this->getApachePassword();
-        $apache->setUserName($username);
-        if (!empty($realm)) {
-            $apache->setAuthName($realm);
+        let apache = this->getApachePassword();
+        apache->setUserName(username);
+        if !empty(realm) {
+            apache->setAuthName(realm);
         }
 
-        if ($apache->verify($password, $matchedHash)) {
-            return new AuthResult(AuthResult::SUCCESS, $username);
+        if apache->verify(password, matchedHash) {
+            return new AuthResult(AuthResult::SUCCESS, username);
         }
 
         return new AuthResult(AuthResult::FAILURE_CREDENTIAL_INVALID, null, array('Passwords did not match.'));

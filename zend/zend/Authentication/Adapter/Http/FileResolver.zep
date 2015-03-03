@@ -1,4 +1,4 @@
-<?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -21,35 +21,35 @@ class FileResolver implements ResolverInterface
      *
      * @var string
      */
-    protected $file;
+    protected file;
 
     /**
      * Constructor
      *
-     * @param  string $path Complete filename where the credentials are stored
+     * @param  string path Complete filename where the credentials are stored
      */
-    public function __construct($path = '')
+    public function __construct(path = '')
     {
-        if (!empty($path)) {
-            $this->setFile($path);
+        if !empty(path) {
+            this->setFile(path);
         }
     }
 
     /**
      * Set the path to the credentials file
      *
-     * @param  string $path
+     * @param  string path
      * @return FileResolver Provides a fluent interface
      * @throws Exception\InvalidArgumentException if path is not readable
      */
-    public function setFile($path)
+    public function setFile(path)
     {
-        if (empty($path) || !is_readable($path)) {
-            throw new Exception\InvalidArgumentException('Path not readable: ' . $path);
+        if empty(path) || !is_readable(path) {
+            throw new Exception\InvalidArgumentException('Path not readable: ' . path);
         }
-        $this->file = $path;
+        let this->file = path;
 
-        return $this;
+        return this;
     }
 
     /**
@@ -59,7 +59,7 @@ class FileResolver implements ResolverInterface
      */
     public function getFile()
     {
-        return $this->file;
+        return this->file;
     }
 
     /**
@@ -77,46 +77,46 @@ class FileResolver implements ResolverInterface
      * authentication realm, and the password or hash, each delimited by
      * colons.
      *
-     * @param  string $username Username
-     * @param  string $realm    Authentication Realm
+     * @param  string username Username
+     * @param  string realm    Authentication Realm
      * @return string|false User's shared secret, if the user is found in the
      *         realm, false otherwise.
      * @throws Exception\ExceptionInterface
      */
-    public function resolve($username, $realm, $password = null)
+    public function resolve(username, realm, password = null)
     {
-        if (empty($username)) {
+        if empty(username) {
             throw new Exception\InvalidArgumentException('Username is required');
-        } elseif (!ctype_print($username) || strpos($username, ':') !== false) {
+        } elseif !ctype_print(username) || strpos(username, ':') !== false {
             throw new Exception\InvalidArgumentException('Username must consist only of printable characters, '
                                                               . 'excluding the colon');
         }
-        if (empty($realm)) {
+        if empty(realm) {
             throw new Exception\InvalidArgumentException('Realm is required');
-        } elseif (!ctype_print($realm) || strpos($realm, ':') !== false) {
+        } elseif !ctype_print(realm) || strpos(realm, ':') !== false {
             throw new Exception\InvalidArgumentException('Realm must consist only of printable characters, '
                                                               . 'excluding the colon.');
         }
 
         // Open file, read through looking for matching credentials
         ErrorHandler::start(E_WARNING);
-        $fp     = fopen($this->file, 'r');
-        $error = ErrorHandler::stop();
-        if (!$fp) {
-            throw new Exception\RuntimeException('Unable to open password file: ' . $this->file, 0, $error);
+        let fp     = fopen(this->file, 'r');
+        let error = ErrorHandler::stop();
+        if !fp {
+            throw new Exception\RuntimeException('Unable to open password file: ' . this->file, 0, error);
         }
 
         // No real validation is done on the contents of the password file. The
         // assumption is that we trust the administrators to keep it secure.
-        while (($line = fgetcsv($fp, 512, ':')) !== false) {
-            if ($line[0] == $username && $line[1] == $realm) {
-                $password = $line[2];
-                fclose($fp);
-                return $password;
+        while (line = fgetcsv(fp, 512, ':')) !== false {
+            if line[0] == username && line[1] == realm {
+                let password = line[2];
+                fclose(fp);
+                return password;
             }
         }
 
-        fclose($fp);
+        fclose(fp);
         return false;
     }
 }

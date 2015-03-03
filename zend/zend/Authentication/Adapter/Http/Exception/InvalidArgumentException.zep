@@ -1,4 +1,4 @@
-<?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -7,12 +7,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Zend\Authentication\Adapter\Exception;
+namespace Zend\Authentication\Adapter\Http\Exception;
 
-use Zend\Authentication\Exception;
+use Zend\Authentication\Adapter\Exception;
 
-class InvalidArgumentException
-    extends Exception\InvalidArgumentException
-    implements ExceptionInterface
+class InvalidArgumentException extends Exception\InvalidArgumentException implements
+    ExceptionInterface
 {
 }

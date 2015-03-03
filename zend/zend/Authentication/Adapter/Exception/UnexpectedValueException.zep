@@ -1,4 +1,4 @@
-<?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -11,7 +11,7 @@ namespace Zend\Authentication\Adapter\Exception;
 
 use Zend\Authentication\Exception;
 
-class RuntimeException extends Exception\RuntimeException implements
+class UnexpectedValueException extends Exception\UnexpectedValueException implements
     ExceptionInterface
 {
 }

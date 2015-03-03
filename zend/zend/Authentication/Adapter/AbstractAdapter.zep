@@ -1,4 +1,4 @@
-<?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -15,12 +15,12 @@ abstract class AbstractAdapter implements ValidatableAdapterInterface
     /**
      * @var mixed
      */
-    protected $credential;
+    protected credential;
 
     /**
      * @var mixed
      */
-    protected $identity;
+    protected identity;
 
     /**
      * Returns the credential of the account being authenticated, or
@@ -30,20 +30,20 @@ abstract class AbstractAdapter implements ValidatableAdapterInterface
      */
     public function getCredential()
     {
-        return $this->credential;
+        return this->credential;
     }
 
     /**
      * Sets the credential for binding
      *
-     * @param  mixed           $credential
+     * @param  mixed           credential
      * @return AbstractAdapter
      */
-    public function setCredential($credential)
+    public function setCredential(credential)
     {
-        $this->credential = $credential;
+        let this->credential = credential;
 
-        return $this;
+        return this;
     }
 
     /**
@@ -54,19 +54,19 @@ abstract class AbstractAdapter implements ValidatableAdapterInterface
      */
     public function getIdentity()
     {
-        return $this->identity;
+        return this->identity;
     }
 
     /**
      * Sets the identity for binding
      *
-     * @param  mixed          $identity
+     * @param  mixed          identity
      * @return AbstractAdapter
      */
-    public function setIdentity($identity)
+    public function setIdentity(identity)
     {
-        $this->identity = $identity;
+        let this->identity = identity;
 
-        return $this;
+        return this;
     }
 }

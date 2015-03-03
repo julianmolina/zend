@@ -1,4 +1,4 @@
-<?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -9,7 +9,10 @@
 
 namespace Zend\Authentication\Adapter\Exception;
 
-use Zend\Authentication\Exception\ExceptionInterface as Exception;
+use Zend\Authentication\Exception;
 
-interface ExceptionInterface extends Exception
-{}
+class InvalidArgumentException
+    extends Exception\InvalidArgumentException
+    implements ExceptionInterface
+{
+}

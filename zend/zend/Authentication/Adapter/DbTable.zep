@@ -1,4 +1,4 @@
-<?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -7,11 +7,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Zend\Authentication\Adapter\Http\Exception;
+namespace Zend\Authentication\Adapter;
 
-use Zend\Authentication\Adapter\Exception;
-
-class RuntimeException extends Exception\RuntimeException implements
-    ExceptionInterface
+/**
+ * @deprecated
+ */
+class DbTable extends DbTable\CredentialTreatmentAdapter
 {
 }
