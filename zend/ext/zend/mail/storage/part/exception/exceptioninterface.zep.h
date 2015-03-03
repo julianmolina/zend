@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_mail_storage_part_exception_exceptioninterface_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Mail_Storage_Part_Exception_ExceptionInterface);
+

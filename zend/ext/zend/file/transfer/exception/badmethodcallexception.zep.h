@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_file_transfer_exception_badmethodcallexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_File_Transfer_Exception_BadMethodCallException);
+

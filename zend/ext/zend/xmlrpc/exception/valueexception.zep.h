@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_xmlrpc_exception_valueexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_XmlRpc_Exception_ValueException);
+

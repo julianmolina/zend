@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_xmlrpc_server_exception_invalidargumentexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_XmlRpc_Server_Exception_InvalidArgumentException);
+

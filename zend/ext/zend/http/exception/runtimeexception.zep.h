@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_http_exception_runtimeexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Http_Exception_RuntimeException);
+

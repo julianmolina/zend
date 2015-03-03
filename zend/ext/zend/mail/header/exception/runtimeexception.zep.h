@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_mail_header_exception_runtimeexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Mail_Header_Exception_RuntimeException);
+

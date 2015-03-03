@@ -1,0 +1,36 @@
+mkdir: zend/cache/storage/.libs: File exists
+mkdir: zend/captcha/exception/.libs: File exists
+mkdir: zend/code/reflection/exception/.libs: File exists
+mkdir: zend/crypt/password/exception/.libs: File exists
+mkdir: zend/db/rowgateway/exception/.libs: File exists
+mkdir: zend/db/tablegateway/exception/.libs: File exists
+mkdir: zend/feed/writer/exception/.libs: File exists
+mkdir: zend/file/exception/.libs: File exists
+mkdir: zend/inputfilter/exception/.libs: File exists
+mkdir: zend/json/server/exception/.libs: File exists
+mkdir: zend/paginator/exception/.libs: File exists
+mkdir: zend/permissions/rbac/exception/.libs: File exists
+mkdir: zend/serializer/exception/.libs: File exists
+mkdir: zend/server/reflection/exception/.libs: File exists
+mkdir: zend/soap/exception/.libs: File exists
+mkdir: zend/text/exception/.libs: File exists
+mkdir: zend/text/table/exception/.libs: File exists
+mkdir: zend/uri/exception/.libs: File exists
+/Users/julianmolina/Documents/zephir/zend/ext/zend/uri/exception/exceptioninterface.zep.c:28:33: warning: \U used with no following hex digits; treating as '\' followed by identifier [-Wunicode]
+        ZEPHIR_REGISTER_INTERFACE(Zend\\Uri\\Exception, ExceptionInterface, zend, uri_exception_exceptioninterface, NULL);
+                                       ^
+/Users/julianmolina/Documents/zephir/zend/ext/zend/uri/exception/invalidargumentexception.zep.c:27:32: warning: \U used with no following hex digits; treating as '\' followed by identifier [-Wunicode]
+        ZEPHIR_REGISTER_CLASS_EX(Zend\\Uri\\Exception, InvalidArgumentException, zend, uri_exception_invalidargumentexception, spl_ce_InvalidArgumentException, NULL, 0);
+                                      ^
+1 warning generated.
+1 warning generated.
+/Users/julianmolina/Documents/zephir/zend/ext/zend/uri/exception/invaliduriexception.zep.c:30:32: warning: \U used with no following hex digits; treating as '\' followed by identifier [-Wunicode]
+        ZEPHIR_REGISTER_CLASS_EX(Zend\\Uri\\Exception, InvalidUriException, zend, uri_exception_invaliduriexception, zend_uri_exception_invalidargumentexception_ce, NULL, 0);
+                                      ^
+/Users/julianmolina/Documents/zephir/zend/ext/zend/uri/exception/invaliduripartexception.zep.c:27:32: warning: \U used with no following hex digits; treating as '\' followed by identifier [-Wunicode]
+        ZEPHIR_REGISTER_CLASS_EX(Zend\\Uri\\Exception, InvalidUriPartException, zend, uri_exception_invaliduripartexception, zend_uri_exception_invalidargumentexception_ce, NULL, 0);
+                                      ^
+1 warning generated.
+1 warning generated.
+mkdir: zend/validator/exception/.libs: File exists
+mkdir: zend/view/exception/.libs: File exists

@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_cache_storage_iterableinterface_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Cache_Storage_IterableInterface);
+

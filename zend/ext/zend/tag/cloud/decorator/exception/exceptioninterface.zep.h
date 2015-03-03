@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_tag_cloud_decorator_exception_exceptioninterface_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Tag_Cloud_Decorator_Exception_ExceptionInterface);
+

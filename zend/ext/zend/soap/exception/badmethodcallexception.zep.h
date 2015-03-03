@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_soap_exception_badmethodcallexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Soap_Exception_BadMethodCallException);
+

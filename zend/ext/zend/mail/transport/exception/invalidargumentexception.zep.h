@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_mail_transport_exception_invalidargumentexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Mail_Transport_Exception_InvalidArgumentException);
+

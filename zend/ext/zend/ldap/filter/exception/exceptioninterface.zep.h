@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_ldap_filter_exception_exceptioninterface_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Ldap_Filter_Exception_ExceptionInterface);
+

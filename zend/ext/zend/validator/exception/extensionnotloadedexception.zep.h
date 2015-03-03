@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_validator_exception_extensionnotloadedexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Validator_Exception_ExtensionNotLoadedException);
+

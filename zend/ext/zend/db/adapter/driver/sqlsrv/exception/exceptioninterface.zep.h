@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_db_adapter_driver_sqlsrv_exception_exceptioninterface_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Db_Adapter_Driver_Sqlsrv_Exception_ExceptionInterface);
+

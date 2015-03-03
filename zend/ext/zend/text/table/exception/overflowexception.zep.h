@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_text_table_exception_overflowexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Text_Table_Exception_OverflowException);
+

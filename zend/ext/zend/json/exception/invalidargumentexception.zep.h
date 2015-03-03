@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_json_exception_invalidargumentexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Json_Exception_InvalidArgumentException);
+

@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_memory_exception_runtimeexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Memory_Exception_RuntimeException);
+

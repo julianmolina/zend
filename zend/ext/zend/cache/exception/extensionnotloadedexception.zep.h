@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_cache_exception_extensionnotloadedexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Cache_Exception_ExtensionNotLoadedException);
+

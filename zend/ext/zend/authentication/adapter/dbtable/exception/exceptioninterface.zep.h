@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_authentication_adapter_dbtable_exception_exceptioninterface_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Authentication_Adapter_DbTable_Exception_ExceptionInterface);
+

@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_permissions_acl_exception_invalidargumentexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Permissions_Acl_Exception_InvalidArgumentException);
+

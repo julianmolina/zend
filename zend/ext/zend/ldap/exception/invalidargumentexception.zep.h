@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_ldap_exception_invalidargumentexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Ldap_Exception_InvalidArgumentException);
+

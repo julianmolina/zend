@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zend_uri_exception_invaliduriexception_ce;
+
+ZEPHIR_INIT_CLASS(Zend_Uri_Exception_InvalidUriException);
+
